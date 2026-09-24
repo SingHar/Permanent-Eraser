@@ -181,8 +181,6 @@
 {
 	[NSApp activateIgnoringOtherApps:YES]; // Bring app to foreground
 	
-	[theWindow setBackgroundColor:[NSColor colorWithCalibratedRed: 0.909 green: 0.909 blue: 0.909 alpha:1.0]];
-	[theWindow display];  // redraw the window to display the light grey background.
 	[theWindow center];	// center the window on the screen
 	
 	[erasingMsg setStringValue:NSLocalizedString(@"PreparingMessage", nil)];
