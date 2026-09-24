@@ -1225,7 +1225,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# References for Xcode environment variables: \n# https://gist.github.com/gdavis/6670468\n# https://stackoverflow.com/questions/6910901/how-do-i-print-a-list-of-build-settings-in-xcode-project\n\n# Print out Xcode's environment variables\n# echo `env`\n\n# unzip the plug-ins\n#cd \"$PROJECT_DIR\"\n#cd Plug-Ins\n#unzip -o Erase.zip\n#unzip -o Permanent\\ Eraser.zip\n#rm -Rf __MACOSX\n\n# copy the plug-ins to Contents/Plug-Ins\n\nPE_SRC_PLUGIN_PATH=\"$PROJECT_DIR/EraseCMI/EraseCMI.plugin\"\nPE_DEST_PLUGIN_PATH=\"$CONFIGURATION_BUILD_DIR/$PLUGINS_FOLDER_PATH/EraseCMI.plugin\"\nPE_ERASE_WORKFLOW_PATH=\"$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Erase.workflow\"\nPE_ERASEFREESPACE_ACTION_PATH=\"$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/EraseFreespace.action\"\n\necho \"Configuration Directory: $CONFIGURATION_BUILD_DIR\"\necho \"Project Directory: $PROJECT_DIR\"\necho \"Build Directory: $BUILD_DIR\"\necho \"Plug-in Path: $PLUGINS_FOLDER_PATH\"\necho \"Source plug-in path: $PE_SRC_PLUGIN_PATH\"\necho \"Dest plug-in path: $PE_DEST_PLUGIN_PATH\"\necho \"Erase.workflow path: $PE_ERASE_WORKFLOW_PATH\"\n\n# rm -Rf \"$PE_DEST_PLUGIN_PATH\" # Remove the old copy\n# cp -Rpf \"$PE_SRC_PLUGIN_PATH\" \"$PE_DEST_PLUGIN_PATH\"\n\n# Due to weirdness in Xcode 3, certain items are also being copied into the Resources folder\n# Remove Erase.workflow and EraseFreespace.action from the Resources folder since these files already \n# exist in other locations in the app bundle\nrm -Rf \"$PE_ERASE_WORKFLOW_PATH\"        # Remove Erase.workflow\nrm -Rf \"$PE_ERASEFREESPACE_ACTION_PATH\" # Remove EraseFreespace.action\n\n# Dest plug-in path: /Users/admin/Programs/builds/Permanent Eraser/build/Permanent Eraser.app/Contents/PlugIns/EraseCMI.plugin\n# cp: /Users/admin/Programs/builds/Permanent Eraser/build/Permanent Eraser.app/Contents/PlugIns: No such file or directory\n\n\n\n";
+			shellScript = "# References for Xcode environment variables: \n# https://gist.github.com/gdavis/6670468\n# https://stackoverflow.com/questions/6910901/how-do-i-print-a-list-of-build-settings-in-xcode-project\n\n# Print out Xcode's environment variables\n# echo `env`\n\n# unzip the plug-ins\n#cd \"$PROJECT_DIR\"\n#cd Plug-Ins\n#unzip -o Erase.zip\n#unzip -o Permanent\\ Eraser.zip\n#rm -Rf __MACOSX\n\n# copy the plug-ins to Contents/Plug-Ins\n\nPE_SRC_PLUGIN_PATH=\"$PROJECT_DIR/EraseCMI/EraseCMI.plugin\"\nPE_DEST_PLUGIN_PATH=\"$CONFIGURATION_BUILD_DIR/$PLUGINS_FOLDER_PATH/EraseCMI.plugin\"\nPE_ERASE_WORKFLOW_PATH=\"$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/Erase.workflow\"\nPE_ERASEFREESPACE_ACTION_PATH=\"$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/EraseFreespace.action\"\n\necho \"Configuration Directory: $CONFIGURATION_BUILD_DIR\"\necho \"Project Directory: $PROJECT_DIR\"\necho \"Build Directory: $BUILD_DIR\"\necho \"Plug-in Path: $PLUGINS_FOLDER_PATH\"\necho \"Source plug-in path: $PE_SRC_PLUGIN_PATH\"\necho \"Dest plug-in path: $PE_DEST_PLUGIN_PATH\"\necho \"Erase.workflow path: $PE_ERASE_WORKFLOW_PATH\"\n\n# rm -Rf \"$PE_DEST_PLUGIN_PATH\" # Remove the old copy\n# cp -Rpf \"$PE_SRC_PLUGIN_PATH\" \"$PE_DEST_PLUGIN_PATH\"\n\n# Due to weirdness in Xcode 3, certain items are also being copied into the Resources folder\n# Remove Erase.workflow and EraseFreespace.action from the Resources folder since these files already \n# exist in other locations in the app bundle\nrm -Rf \"$PE_ERASE_WORKFLOW_PATH\"        # Remove Erase.workflow\nrm -Rf \"$PE_ERASEFREESPACE_ACTION_PATH\" # Remove EraseFreespace.action\n\n# Xcode does not sign workflow bundles on copy, so sign Erase.workflow before the app is signed\nif [ -n \"$EXPANDED_CODE_SIGN_IDENTITY\" ]; then\n\tcodesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" \"$CONFIGURATION_BUILD_DIR/$PLUGINS_FOLDER_PATH/Erase.workflow/Contents/document.wflow\"\n\tcodesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" \"$CONFIGURATION_BUILD_DIR/$PLUGINS_FOLDER_PATH/Erase.workflow\"\nfi\n\n# Dest plug-in path: /Users/admin/Programs/builds/Permanent Eraser/build/Permanent Eraser.app/Contents/PlugIns/EraseCMI.plugin\n# cp: /Users/admin/Programs/builds/Permanent Eraser/build/Permanent Eraser.app/Contents/PlugIns: No such file or directory\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2399,22 +2399,22 @@
 		84D1577D08EB759400EF9E06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_VERSION = 4.0;
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_WARN_MISSING_PARENTHESES = NO;
-				SDKROOT = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		84D1577E08EB759400EF9E06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				GCC_VERSION = 4.0;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "-";
 				GCC_WARN_MISSING_PARENTHESES = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -2422,14 +2422,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_WARN_MISSING_PARENTHESES = NO;
-				SDKROOT = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
 			};
 			name = Default;
 		};
 		84E63DBF09B53F1500DA4444 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2438,7 +2439,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PermanentEraser_Prefix.h;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Info-PermanentEraser__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -2446,7 +2446,8 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Permanent Eraser";
-				SDKROOT = macosx10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -2460,14 +2461,13 @@
 		84E63DC009B53F1500DA4444 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PermanentEraser_Prefix.h;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Info-PermanentEraser__Upgraded_.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -2476,7 +2476,8 @@
 				OTHER_CODE_SIGN_FLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Permanent Eraser";
-				SDKROOT = macosx10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",

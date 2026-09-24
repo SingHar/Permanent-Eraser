@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nNKeKg1x55NyO1pb07inDR8/Fwo=
+			4+W899EsI7ZiafA3KQdma4noMmk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -17,7 +17,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FP9Bxp29Y3H+hwSaKJpK87e8mf8=
+			LgbEu/K68kae3pOip365UDA9g/w=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -31,36 +31,24 @@
 	<dict>
 		<key>Resources/English.lproj/InfoPlist.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nNKeKg1x55NyO1pb07inDR8/Fwo=
-			</data>
 			<key>hash2</key>
 			<data>
-			4WVPPo87yCZuLB+HsafYY2vi0T4QuwIiba7NyP5CSFM=
+			SI+Y7W6iTz1BtgzlKEe+dg2fv1kFtodFGj1g0Rud7DM=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/English.lproj/main.nib</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			FP9Bxp29Y3H+hwSaKJpK87e8mf8=
-			</data>
 			<key>hash2</key>
 			<data>
-			gGsc3SfHvZDKT8x9lkl9UF6TQktqmEYt/PMMyZc97OY=
+			xv45haf66vukmz/WaHdKZ22O1B0uYFjzTtu4vskZ/Y8=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/PE.icns</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+eURg6zGoj3hQOL8aCwC3BkuWwk=
-			</data>
 			<key>hash2</key>
 			<data>
 			BqNauX7UItm16/hivK9omcb6qZKEpvFQL+xe5c2VG9I=

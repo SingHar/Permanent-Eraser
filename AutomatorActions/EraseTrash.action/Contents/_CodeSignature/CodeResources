@@ -8,7 +8,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			00PDj16hjZS2JIjAyuomXlmIZHs=
+			c7w5sLQOLCCpOZ6AkfJXGppv18E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -26,23 +26,15 @@
 	<dict>
 		<key>Resources/English.lproj/InfoPlist.strings</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			00PDj16hjZS2JIjAyuomXlmIZHs=
-			</data>
 			<key>hash2</key>
 			<data>
-			FzTjo0gAvBYtdBvkWmeEWxqFQ7oXDCG2bKeILjEFjJo=
+			pE73bRWTTXTTf0MwoLIVKwy9XQWex4679pnFQHhpNHs=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/PE.icns</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+eURg6zGoj3hQOL8aCwC3BkuWwk=
-			</data>
 			<key>hash2</key>
 			<data>
 			BqNauX7UItm16/hivK9omcb6qZKEpvFQL+xe5c2VG9I=
@@ -50,10 +42,6 @@
 		</dict>
 		<key>Resources/PE.tiff</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			QpcwcGQPnxe/qpt4tnGbFlcbJvw=
-			</data>
 			<key>hash2</key>
 			<data>
 			+xPqY8NGpZSaGDUaDJwNJXC9PaqrK7w7uhlPj+F8I98=
